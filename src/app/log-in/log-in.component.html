@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col s8 offset-s2">
+    <div class="card">
+      <div class="sm-jumbotron center-align">
+        <h2>User Login</h2>
+      </div>
+      <form class="col s12 white" #UserLogin="ngForm" autocomplete="off">
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" class="validate" name="UserName" #UserName="ngModel" [(ngModel)]="user.UserName" required>
+            <label data-error="Required Field!!!">User Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+              <input type="password" class="validate" name="Password" #Password="ngModel" [(ngModel)]="user.Password" required minlength="3">
+              <label [attr.data-error] ="Password.errors != null?(Password.errors.required?'Require Field':'Minimun 3 Character Needed'):''">Password</label>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="input-field col s12">
+            <button class="btn-large btn-submit" [disabled]="UserLogin.valid" type="submit">Login</button>
+          </div>
+        </div>  
+      </form>
+    </div>
+
+  </div>
+</div>
+
